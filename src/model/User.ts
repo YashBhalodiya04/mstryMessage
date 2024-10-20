@@ -18,7 +18,7 @@ const MessageSchema: Schema<Message> = new Schema({
 });
 
 export interface User extends Document {
-  userName: string;
+  username: string;
   password: string;
   messages: Message[];
   createAt: Date;
@@ -30,7 +30,7 @@ export interface User extends Document {
 }
 
 const UserSchema: Schema<User> = new Schema({
-  userName: {
+  username: {
     type: String,
     required: [true, "Please enter a username"],
     unique: true,

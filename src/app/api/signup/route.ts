@@ -5,18 +5,17 @@ import { sendVerificationEmil } from "@/helpers/sendVerificationEmail";
 
 export const POST = async (request: Request) => {
   await dbconnect();
-
   try {
-    const { userName, password, email } = await request.json();
+    debugger
+    const { username, password, email } = await request.json();
     let isUpdated = false;
 
     // Check if the user already exists
     const existingUser = await UserModal.findOne({
-      userName,
+      username,
       isVarified: true,
     });
-
-    if (existingUser) {
+    if (existingUser && !null) {
       return Response.json(
         {
           success: false,
@@ -58,7 +57,7 @@ export const POST = async (request: Request) => {
       const varifyCodeExpiry = new Date(Date.now() + 10 * 60 * 1000);
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = new UserModal({
-        userName,
+        username,
         password: hashedPassword,
         email,
         varifyCode,
@@ -73,7 +72,7 @@ export const POST = async (request: Request) => {
     // Send verification email
     const { success, message } = await sendVerificationEmil(
       email,
-      userName,
+      username,
       varifyCode
     );
     if (success) {

@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
         token._id = user._id?.toString(); // Convert ObjectId to string
         token.isVerified = user.isVarified;
         token.isAcceptingMessages = user.isAcceptingMessages;
-        token.username = user.userName;
+        token.username = user.username;
       }
       return token;
     },
@@ -68,6 +68,6 @@ export const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/sign-in',
+    signIn: '/signin',
   },
 };

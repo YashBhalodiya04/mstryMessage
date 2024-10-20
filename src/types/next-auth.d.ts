@@ -5,7 +5,7 @@ declare module "next-auth" {
         _id?:string;
         isVarified?:boolean;
         isAcceptingMessages?:boolean;
-        userName?:string;
+        username?:string;
     }
 
     interface Session {
@@ -18,6 +18,6 @@ declare module "next-auth/jwt" {
         _id?:string;
         isVarified?:boolean;
         isAcceptingMessages?:boolean;
-        userName?:string;
+        username?:string;
     }
 }

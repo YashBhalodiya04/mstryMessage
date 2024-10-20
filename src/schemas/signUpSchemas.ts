@@ -7,7 +7,7 @@ export const userNameValidation = z
   .regex(/^[a-zA-Z0-9_]+$/, "UserName Must be alphanumeric");
 
 export const signUpSchema = z.object({
-  userName: userNameValidation,
+  username: userNameValidation,
   email: z.string().email({ message: "Invalid email address" }),
   password: z
     .string()
