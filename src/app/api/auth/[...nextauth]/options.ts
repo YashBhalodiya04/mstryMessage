@@ -1,6 +1,5 @@
-import { Awaitable, NextAuthOptions, RequestInternal, User } from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import dbconnect from "@/lib/dbConect";
 import UserModal from "@/model/User";
